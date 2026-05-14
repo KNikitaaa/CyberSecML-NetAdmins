@@ -1,0 +1,7 @@
+^.*\\.Rproj$
+^\.Rproj\.user$
+^\.git$
+^\.github$
+^\.vscode$
+^docs$
+^inst/shiny/app_cache$

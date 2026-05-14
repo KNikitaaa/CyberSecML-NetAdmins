@@ -1,0 +1,9 @@
+.git
+.gitignore
+.Rproj.user
+.vscode
+.env
+.env.*
+!.env.example
+inst/extdata
+inst/shiny/app_cache

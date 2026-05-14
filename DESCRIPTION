@@ -1,0 +1,48 @@
+Package: OffensiveToolMapper
+Title: Offensive Security Tool Intelligence and MITRE ATT&CK Mapping
+Version: 0.0.1
+Authors@R: c(
+    person(
+        given = "OffensiveToolMapper",
+        role = c("aut", "cre")
+    )
+    )
+Description: Collects offensive cybersecurity tool data from open sources,
+    validates and enriches it with large language models, maps tools to
+    MITRE ATT&CK techniques, and exposes the results through analytics,
+    Shiny dashboards, and MCP interfaces.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Config/testthat/edition: 3
+Imports:
+    cli,
+    DBI,
+    dplyr,
+    DT,
+    duckdb,
+    gh,
+    ggplot2,
+    httr2,
+    igraph,
+    jsonlite,
+    plotly,
+    purrr,
+    rvest,
+    shiny,
+    stringr,
+    tibble,
+    tidyr,
+    tidyRSS,
+    visNetwork,
+    xml2
+Suggests:
+    bslib,
+    devtools,
+    mcpr,
+    roxygen2,
+    testthat,
+    usethis
+Additional_repositories: https://devopifex.r-universe.dev
