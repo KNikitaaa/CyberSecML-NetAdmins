@@ -36,7 +36,7 @@ docker compose version
 
 ```powershell
 git clone https://github.com/KNikitaaa/CyberSecML-NetAdmins.git
-cd OffensiveToolMapper
+cd CyberSecML-NetAdmins
 .\scripts\setup_env.ps1
 docker compose pull
 docker compose up -d
@@ -56,7 +56,7 @@ Local Docker build is only needed for development:
 powershell -ExecutionPolicy Bypass -File scripts/build_local.ps1
 ```
 
-Maintainers publish the prebuilt image with `.github/workflows/docker-image.yml`. The default startup image is controlled by `OTM_DOCKER_IMAGE`; for this repository it should be `ghcr.io/KNikitaaa/CyberSecML-NetAdmins:latest`.
+Maintainers publish the prebuilt image with `.github/workflows/docker-image.yml`. The default startup image is controlled by `OTM_DOCKER_IMAGE`; for this repository it should be `ghcr.io/knikitaaa/cybersecml-netadmins:latest`.
 
 Если PowerShell запрещает запуск `.ps1`:
 
@@ -408,10 +408,10 @@ MCP-сервер поддерживает два транспорта:
     "OffensiveToolMapper": {
       "command": "Rscript",
       "args": ["inst/mcp/run_server.R"],
-      "cwd": "/path/to/OffensiveToolMapper",
+      "cwd": "/path/to/CyberSecML-NetAdmins",
       "env": {
         "OTM_MCP_TRANSPORT": "stdio",
-        "OFFENSIVETOOLMAPPER_DATA_DIR": "/path/to/OffensiveToolMapper/inst/extdata"
+        "OFFENSIVETOOLMAPPER_DATA_DIR": "/path/to/CyberSecML-NetAdmins/inst/extdata"
       }
     }
   }
@@ -440,10 +440,10 @@ OTM_MCP_TRANSPORT=http OTM_MCP_PORT=3000 Rscript inst/mcp/run_server.R
 
 ```r
 # из локальной директории
-devtools::install("/path/to/OffensiveToolMapper")
+devtools::install("/path/to/CyberSecML-NetAdmins")
 
 # или через pak
-pak::pkg_install("local::/path/to/OffensiveToolMapper")
+pak::pkg_install("local::/path/to/CyberSecML-NetAdmins")
 ```
 
 ### Использование без Docker

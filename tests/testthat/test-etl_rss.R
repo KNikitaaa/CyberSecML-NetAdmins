@@ -1,8 +1,10 @@
-test_that("get_default_feeds is empty unless feeds are configured", {
+test_that("get_default_feeds returns bundled security feeds unless overridden", {
   feeds <- get_default_feeds()
 
   expect_type(feeds, "character")
-  expect_equal(length(feeds), 0)
+  expect_equal(length(feeds), 3)
+  expect_true(all(c("exploit_db", "hackernews_sec", "bleepingcomputer") %in% names(feeds)))
+  expect_true(all(grepl("^https?://", feeds)))
 })
 
 test_that("fetch_security_feeds parses RSS feeds", {

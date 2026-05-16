@@ -12,13 +12,13 @@ offensive cybersecurity tools to MITRE ATT&CK.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://w8ofdope.github.io/OffensiveToolMapper/}
-  \item \url{https://github.com/w8ofdope/OffensiveToolMapper}
+  \item \url{https://KNikitaaa.github.io/CyberSecML-NetAdmins/}
+  \item \url{https://github.com/KNikitaaa/CyberSecML-NetAdmins}
 }
 
 }
 \author{
-\strong{Maintainer}: w8ofdope Maintainer \email{69384386+w8ofdope@users.noreply.github.com}
+\strong{Maintainer}: KNikitaaa Maintainer \email{KNikitaaa@users.noreply.github.com}
 
 }
 \keyword{internal}

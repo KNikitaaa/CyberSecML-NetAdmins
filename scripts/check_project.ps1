@@ -77,7 +77,7 @@ Invoke-CheckStep "setup_env.ps1 creates a temporary .env" {
       -GithubPat "test-github-token" `
       -GithubMaxResults "7" `
       -GithubMaxSearchRequests "3" `
-      -DockerImage "ghcr.io/example/offensive-tool-mapper:latest" `
+      -DockerImage "ghcr.io/example/cybersecml-netadmins:latest" `
       -OutputPath $tmp
 
     if (-not (Test-Path -LiteralPath $tmp)) {
@@ -88,7 +88,7 @@ Invoke-CheckStep "setup_env.ps1 creates a temporary .env" {
     if (
       ($content -notcontains "OTM_GITHUB_MAX_RESULTS=7") -or
       ($content -notcontains "OTM_GITHUB_MAX_SEARCH_REQUESTS=3") -or
-      ($content -notcontains "OTM_DOCKER_IMAGE=ghcr.io/example/offensive-tool-mapper:latest")
+      ($content -notcontains "OTM_DOCKER_IMAGE=ghcr.io/example/cybersecml-netadmins:latest")
     ) {
       throw "Temporary .env did not preserve configured GitHub limits."
     }

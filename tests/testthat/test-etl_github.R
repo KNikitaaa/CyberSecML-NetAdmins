@@ -212,7 +212,9 @@ test_that("search_github_tools deduplicates repositories across queries", {
     queries = c("pentest tool", "red team tool"),
     max_results = 5,
     include_readme = FALSE,
-    sort_modes = "stars"
+    sort_modes = "stars",
+    max_search_requests = 2,
+    min_search_requests = 2
   )
 
   expect_equal(tracker$search_calls, 2L)
@@ -379,7 +381,9 @@ test_that("search_github_tools degrades gracefully when a query fails", {
     queries = c("broken query", "working query"),
     sort_modes = "stars",
     include_readme = FALSE,
-    max_results = 5
+    max_results = 5,
+    max_search_requests = 2,
+    min_search_requests = 2
   )
 
   expect_equal(nrow(results), 1)

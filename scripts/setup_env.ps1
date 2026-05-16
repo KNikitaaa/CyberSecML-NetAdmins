@@ -236,7 +236,7 @@ if (-not $NonInteractive) {
   $PacketStormUrls      = Read-PlainValue  "PACKETSTORM_URLS (optional, semicolon-separated)" $PacketStormUrls
 
   Write-SetupStep "8. Docker image" "For normal startup use the prebuilt image. Maintainers can override this with their own GHCR path."
-  $dockerImageDefault = if ($DockerImage) { $DockerImage } else { "ghcr.io/KNikitaaa/CyberSecML-NetAdmins:latest" }
+  $dockerImageDefault = if ($DockerImage) { $DockerImage } else { "ghcr.io/knikitaaa/cybersecml-netadmins:latest" }
   $DockerImage = Read-PlainValue "OTM_DOCKER_IMAGE" $dockerImageDefault
 }
 
@@ -262,7 +262,7 @@ if (-not $GithubPat) {
 
 if (-not $GithubMaxResults) { $GithubMaxResults = "30" }
 if (-not $GithubMaxSearchRequests) { $GithubMaxSearchRequests = "1" }
-if (-not $DockerImage) { $DockerImage = "ghcr.io/KNikitaaa/CyberSecML-NetAdmins:latest" }
+if (-not $DockerImage) { $DockerImage = "ghcr.io/knikitaaa/cybersecml-netadmins:latest" }
 
 $lines = [System.Collections.Generic.List[string]]::new()
 $lines.Add("# OffensiveToolMapper local environment")

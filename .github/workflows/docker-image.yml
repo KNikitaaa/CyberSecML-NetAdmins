@@ -24,7 +24,8 @@ jobs:
       - name: Set image name
         run: |
           owner="$(echo "${GITHUB_REPOSITORY_OWNER}" | tr '[:upper:]' '[:lower:]')"
-          echo "IMAGE_NAME=ghcr.io/${owner}/offensive-tool-mapper" >> "${GITHUB_ENV}"
+          repo="$(basename "${GITHUB_REPOSITORY}" | tr '[:upper:]' '[:lower:]')"
+          echo "IMAGE_NAME=ghcr.io/${owner}/${repo}" >> "${GITHUB_ENV}"
 
       - name: Log in to GHCR
         uses: docker/login-action@v3

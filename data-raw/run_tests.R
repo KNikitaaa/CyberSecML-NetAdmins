@@ -10,5 +10,5 @@ testthat::test_local(
   path = project_root,
   load_package = "source",
   reporter = "summary",
-  stop_on_failure = FALSE
+  stop_on_failure = TRUE
 )

@@ -18,7 +18,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: ${OTM_DOCKER_IMAGE:-offensive-tool-mapper:local}
+    image: ${OTM_DOCKER_IMAGE:-cybersecml-netadmins:local}
     environment:
       <<: *common-r-env
       OFFENSIVETOOLMAPPER_DATA_DIR: /app/inst/extdata
@@ -34,7 +34,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: ${OTM_DOCKER_IMAGE:-offensive-tool-mapper:local}
+    image: ${OTM_DOCKER_IMAGE:-cybersecml-netadmins:local}
     environment:
       <<: *common-r-env
       OFFENSIVETOOLMAPPER_DATA_DIR: /app/inst/extdata

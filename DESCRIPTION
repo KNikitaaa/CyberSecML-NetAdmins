@@ -3,9 +3,9 @@ Title: Offensive Security Tool Intelligence and MITRE ATT&CK Mapping
 Version: 0.0.1
 Authors@R: c(
     person(
-        given = "w8ofdope",
+        given = "KNikitaaa",
         family = "Maintainer",
-        email = "69384386+w8ofdope@users.noreply.github.com",
+        email = "KNikitaaa@users.noreply.github.com",
         role = c("aut", "cre")
     )
     )
@@ -13,7 +13,7 @@ Description: Collects offensive cybersecurity tool data from open sources,
     validates and enriches it with large language models, maps tools to
     MITRE ATT&CK techniques, and exposes the results through analytics,
     Shiny dashboards, and MCP interfaces.
-URL: https://w8ofdope.github.io/OffensiveToolMapper/, https://github.com/w8ofdope/OffensiveToolMapper
+URL: https://KNikitaaa.github.io/CyberSecML-NetAdmins/, https://github.com/KNikitaaa/CyberSecML-NetAdmins
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
