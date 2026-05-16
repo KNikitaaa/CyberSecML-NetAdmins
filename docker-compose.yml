@@ -13,7 +13,7 @@ x-common-r-env: &common-r-env
   OTM_GITHUB_MAX_RESULTS: ${OTM_GITHUB_MAX_RESULTS:-30}
   OTM_GITHUB_MAX_SEARCH_REQUESTS: ${OTM_GITHUB_MAX_SEARCH_REQUESTS:-1}
 
-x-app-image: &app-image ${OTM_DOCKER_IMAGE:-ghcr.io/w8ofdope/offensive-tool-mapper:latest}
+x-app-image: &app-image ${OTM_DOCKER_IMAGE:-ghcr.io/KNikitaaa/CyberSecML-NetAdmins:latest}
 
 services:
   shiny-app:

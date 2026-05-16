@@ -1,7 +1,7 @@
 template:
   bootstrap: 5
 
-url: https://w8ofdope.github.io/OffensiveToolMapper/
+url: https://KNikitaaa.github.io/CyberSecML-NetAdmins/
 
 home:
   title: OffensiveToolMapper
@@ -28,4 +28,4 @@ navbar:
     github:
       icon: fa-github
       aria-label: GitHub repository
-      href: https://github.com/w8ofdope/OffensiveToolMapper
+      href: https://github.com/KNikitaaa/CyberSecML-NetAdmins

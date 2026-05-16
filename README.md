@@ -35,7 +35,7 @@ docker compose version
 ## Быстрый старт
 
 ```powershell
-git clone https://github.com/w8ofdope/OffensiveToolMapper.git
+git clone https://github.com/KNikitaaa/CyberSecML-NetAdmins.git
 cd OffensiveToolMapper
 .\scripts\setup_env.ps1
 docker compose pull
@@ -56,7 +56,7 @@ Local Docker build is only needed for development:
 powershell -ExecutionPolicy Bypass -File scripts/build_local.ps1
 ```
 
-Maintainers publish the prebuilt image with `.github/workflows/docker-image.yml`. The default startup image is controlled by `OTM_DOCKER_IMAGE`; for this repository it should be `ghcr.io/w8ofdope/offensive-tool-mapper:latest`.
+Maintainers publish the prebuilt image with `.github/workflows/docker-image.yml`. The default startup image is controlled by `OTM_DOCKER_IMAGE`; for this repository it should be `ghcr.io/KNikitaaa/CyberSecML-NetAdmins:latest`.
 
 Если PowerShell запрещает запуск `.ps1`:
 
