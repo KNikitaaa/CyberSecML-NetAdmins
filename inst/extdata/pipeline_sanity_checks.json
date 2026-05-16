@@ -1,0 +1,72 @@
+[
+  {
+    "run_id": "20260515-213636-3256",
+    "check_name": "normalized_non_empty",
+    "status": "pass",
+    "severity": "critical",
+    "observed_value": "475",
+    "expected_value": "> 0",
+    "details": "Normalized layer should contain at least one candidate row.",
+    "checked_at": "2026-05-15 22:03:34"
+  },
+  {
+    "run_id": "20260515-213636-3256",
+    "check_name": "normalized_record_id_unique",
+    "status": "pass",
+    "severity": "critical",
+    "observed_value": "0",
+    "expected_value": "0 duplicates",
+    "details": "Duplicate normalized record_id values indicate unstable canonical identity.",
+    "checked_at": "2026-05-15 22:03:34"
+  },
+  {
+    "run_id": "20260515-213636-3256",
+    "check_name": "assessment_covers_relevant_tools",
+    "status": "pass",
+    "severity": "critical",
+    "observed_value": "relevant=190; assessed=475",
+    "expected_value": "relevant <= assessed",
+    "details": "Relevant tool rows should never exceed assessed rows.",
+    "checked_at": "2026-05-15 22:03:34"
+  },
+  {
+    "run_id": "20260515-213636-3256",
+    "check_name": "relevant_record_id_unique",
+    "status": "pass",
+    "severity": "warning",
+    "observed_value": "0",
+    "expected_value": "0 duplicates",
+    "details": "Relevant tool duplicates make run-to-run comparison noisy.",
+    "checked_at": "2026-05-15 22:03:34"
+  },
+  {
+    "run_id": "20260515-213636-3256",
+    "check_name": "mitre_mapping_has_technique_id",
+    "status": "pass",
+    "severity": "warning",
+    "observed_value": "0",
+    "expected_value": "0 missing technique_id",
+    "details": "MITRE rows without technique_id are not useful for downstream comparison.",
+    "checked_at": "2026-05-15 22:03:34"
+  },
+  {
+    "run_id": "20260515-213636-3256",
+    "check_name": "mitre_mapping_links_to_relevant_tools",
+    "status": "warn",
+    "severity": "warning",
+    "observed_value": "5",
+    "expected_value": "0 orphan MITRE rows",
+    "details": "Every MITRE mapping should point to a relevant tool record_id.",
+    "checked_at": "2026-05-15 22:03:34"
+  },
+  {
+    "run_id": "20260515-213636-3256",
+    "check_name": "visualization_tracks_relevant_tools",
+    "status": "pass",
+    "severity": "warning",
+    "observed_value": "visualization=190; relevant=190",
+    "expected_value": "visualization > 0 when relevant > 0",
+    "details": "Visualization layer should materialize when assessment produces relevant tools.",
+    "checked_at": "2026-05-15 22:03:34"
+  }
+]
