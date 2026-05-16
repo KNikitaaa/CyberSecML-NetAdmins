@@ -1,0 +1,48 @@
+x-common-r-env: &common-r-env
+  DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+  OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+  OPENAI_ORG_ID: ${OPENAI_ORG_ID:-}
+  OPENAI_PROJECT_ID: ${OPENAI_PROJECT_ID:-}
+  GITHUB_PAT: ${GITHUB_PAT:-}
+  LLM_PROVIDER: ${LLM_PROVIDER:-openai}
+  LLM_MODEL: ${LLM_MODEL:-}
+  LLM_BASE_URL: ${LLM_BASE_URL:-}
+  LLM_MAX_RECORDS: ${LLM_MAX_RECORDS:-}
+  OTM_COLLECT_MODE: ${OTM_COLLECT_MODE:-incremental}
+  OTM_GITHUB_MIN_STARS: ${OTM_GITHUB_MIN_STARS:-10}
+  OTM_GITHUB_MAX_RESULTS: ${OTM_GITHUB_MAX_RESULTS:-100}
+  OTM_GITHUB_MAX_SEARCH_REQUESTS: ${OTM_GITHUB_MAX_SEARCH_REQUESTS:-60}
+
+services:
+  shiny-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      <<: *common-r-env
+      OFFENSIVETOOLMAPPER_DATA_DIR: /app/inst/extdata
+    working_dir: /app
+    command: >
+      sh -lc "Rscript -e \"shiny::runApp('inst/shiny', launch.browser = FALSE, host = '0.0.0.0', port = 8788)\""
+    volumes:
+      - .:/app
+    ports:
+      - "8788:8788"
+
+  mcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      <<: *common-r-env
+      OFFENSIVETOOLMAPPER_DATA_DIR: /app/inst/extdata
+      OTM_MCP_TRANSPORT: http
+      OTM_MCP_PORT: 3000
+    working_dir: /app
+    command: sh -lc "Rscript inst/mcp/run_server.R"
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - shiny-app
