@@ -1,17 +1,8 @@
-x-common-r-env: &common-r-env
-  DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
-  OPENAI_API_KEY: ${OPENAI_API_KEY:-}
-  OPENAI_ORG_ID: ${OPENAI_ORG_ID:-}
-  OPENAI_PROJECT_ID: ${OPENAI_PROJECT_ID:-}
-  GITHUB_PAT: ${GITHUB_PAT:-}
-  LLM_PROVIDER: ${LLM_PROVIDER:-openai}
-  LLM_MODEL: ${LLM_MODEL:-}
-  LLM_BASE_URL: ${LLM_BASE_URL:-}
-  LLM_MAX_RECORDS: ${LLM_MAX_RECORDS:-}
-  OTM_COLLECT_MODE: ${OTM_COLLECT_MODE:-incremental}
-  OTM_GITHUB_MIN_STARS: ${OTM_GITHUB_MIN_STARS:-0}
-  OTM_GITHUB_MAX_RESULTS: ${OTM_GITHUB_MAX_RESULTS:-30}
-  OTM_GITHUB_MAX_SEARCH_REQUESTS: ${OTM_GITHUB_MAX_SEARCH_REQUESTS:-1}
+# Load per-user runtime settings directly from .env so stale host variables do not
+# override tokens written by scripts/setup_env.ps1.
+x-app-env-file: &app-env-file
+  - path: .env
+    required: false
 
 services:
   shiny-app:
@@ -19,8 +10,8 @@ services:
       context: .
       dockerfile: Dockerfile
     image: ${OTM_DOCKER_IMAGE:-cybersecml-netadmins:local}
+    env_file: *app-env-file
     environment:
-      <<: *common-r-env
       OFFENSIVETOOLMAPPER_DATA_DIR: /app/inst/extdata
     working_dir: /app
     command: >
@@ -35,8 +26,8 @@ services:
       context: .
       dockerfile: Dockerfile
     image: ${OTM_DOCKER_IMAGE:-cybersecml-netadmins:local}
+    env_file: *app-env-file
     environment:
-      <<: *common-r-env
       OFFENSIVETOOLMAPPER_DATA_DIR: /app/inst/extdata
       OTM_MCP_TRANSPORT: http
       OTM_MCP_PORT: 3000
