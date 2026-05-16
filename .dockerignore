@@ -1,0 +1,9 @@
+.git
+.gitignore
+.env
+.env.*
+.Rproj.user
+.vscode
+inst/shiny/app_cache
+webapp/node_modules
+webapp/dist

@@ -1,0 +1,8 @@
+^.*\\.Rproj$
+^\.Rproj\.user$
+^\.git$
+^\.github$
+^\.vscode$
+^plan\.md$
+^tasks\.md$
+^Technical_Requirements\.pdf$
