@@ -1,0 +1,31 @@
+template:
+  bootstrap: 5
+
+url: https://w8ofdope.github.io/OffensiveToolMapper/
+
+home:
+  title: OffensiveToolMapper
+  description: Offensive security tool intelligence, MITRE ATT&CK mapping, dashboards, and MCP access.
+
+navbar:
+  structure:
+    left: [intro, articles, reference]
+    right: [github]
+  components:
+    intro:
+      text: Overview
+      href: index.html
+    articles:
+      text: Guides
+      menu:
+        - text: Quick Start
+          href: articles/introduction.html
+        - text: Data Pipeline
+          href: articles/data-pipeline.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    github:
+      icon: fa-github
+      aria-label: GitHub repository
+      href: https://github.com/w8ofdope/OffensiveToolMapper

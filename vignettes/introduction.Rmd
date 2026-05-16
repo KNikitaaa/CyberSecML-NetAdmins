@@ -1,0 +1,75 @@
+---
+title: "Введение в OffensiveToolMapper"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Введение в OffensiveToolMapper}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+# Что делает проект
+
+`OffensiveToolMapper` собирает инструменты из открытых источников, нормализует их, проводит LLM-оценку, строит MITRE ATT&CK-связи и показывает результат в двух слоях:
+
+- Shiny-приложение для человека;
+- MCP-сервер для AI-клиентов и внешней автоматизации.
+
+# Поток данных
+
+1. Сбор из GitHub, PacketStorm и RSS.
+2. Нормализация и фильтрация нерелевантных кандидатов.
+3. Оценка через LLM.
+4. Уточнение MITRE-связей.
+5. Подготовка RDS-артефактов для Shiny и MCP.
+
+# Основные артефакты
+
+После полного прогона в `inst/extdata/` появляются:
+
+- `normalized_tools.rds`;
+- `tool_assessment_results.rds`;
+- `relevant_tools.rds`;
+- `tool_mitre_mappings.rds`;
+- `mitre_refinement_candidates.rds`;
+- `visualization_tools.rds`;
+- `visualization_tool_matrix.rds`;
+- `offensive_tool_mapper.duckdb`.
+
+# Локальный запуск
+
+Полный прогон пайплайна:
+
+```{r eval = FALSE}
+source("data-raw/run_full_pipeline.R")
+```
+
+Только тесты:
+
+```{r eval = FALSE}
+source("data-raw/run_tests.R")
+```
+
+# LLM-настройки
+
+Провайдер и модель задаются переменными окружения:
+
+- `LLM_PROVIDER`;
+- `LLM_MODEL`;
+- `LLM_BASE_URL`;
+- `OPENAI_API_KEY`;
+- `DEEPSEEK_API_KEY`;
+- `LLM_MAX_RECORDS`.
+
+# Интерфейсы
+
+## Shiny
+
+Shiny является единственным пользовательским веб-интерфейсом. В нем находятся обзор, карточки инструментов, MITRE-аналитика и вкладка пайплайна.
+
+## MCP
+
+MCP-сервер дает программный доступ к тем же данным: поиск по инструментам, получение техник и тактик, статистику и базовую классификацию новых кандидатов.
